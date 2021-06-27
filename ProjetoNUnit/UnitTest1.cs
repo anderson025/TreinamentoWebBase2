@@ -61,16 +61,39 @@ namespace ProjetoNUnit
         public void FillingOutForms()
         {
             string url = "https://ultimateqa.com/filling-out-forms/";
-
             IWebDriver driver = new ChromeDriver();
-
             driver.Navigate().GoToUrl(url);
+
             driver.FindElement(By.Id("et_pb_contact_name_0")).SendKeys("Teste");
             driver.FindElement(By.Id("et_pb_contact_message_0")).SendKeys("Teste1");
 
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10)); 
             wait.Until(ExpectedConditions.ElementToBeClickable(By.Name("et_builder_submit_button")));
             driver.FindElement(By.Name("et_builder_submit_button")).Click();
+            
+            WebDriverWait wait1 = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            wait1.Until(ExpectedConditions.ElementToBeClickable(By.Name("et_builder_submit_button")));    
+            driver.FindElement(By.Name("et_builder_submit_button")).Click();
+
+            WebDriverWait wait2 = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            wait2.Until(ExpectedConditions.ElementToBeClickable(By.Name("et_builder_submit_button")));
+            driver.FindElement(By.Name("et_builder_submit_button")).Click();
         }
+
+        [Test]
+        public void DropDownList()
+        {
+            string url = "http://the-internet.herokuapp.com/dropdown";
+            IWebDriver driver = new ChromeDriver();
+            driver.Navigate().GoToUrl(url);
+
+            driver.FindElement(By.Id("dropdown")).Click();
+            driver.FindElement(By.CssSelector("option[value='2']")).Click();
+            driver.FindElement(By.Id("dropdown")).Click();
+            driver.FindElement(By.CssSelector("option[value='1']")).Click();
+
+
+        }
+
     }
 }
