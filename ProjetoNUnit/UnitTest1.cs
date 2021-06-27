@@ -88,11 +88,22 @@ namespace ProjetoNUnit
             driver.Navigate().GoToUrl(url);
 
             driver.FindElement(By.Id("dropdown")).Click();
+            //Utilizando CssSelector
             driver.FindElement(By.CssSelector("option[value='2']")).Click();
             driver.FindElement(By.Id("dropdown")).Click();
-            driver.FindElement(By.CssSelector("option[value='1']")).Click();
+            //Utilizando o XPath
+            driver.FindElement(By.XPath("//option[@value='1']")).Click();
 
 
+        }
+        [Test]
+        public void CrowdTest()
+        {
+             string url = "http://blackmirror.crowdtest.me.s3-website-us-east-1.amazonaws.com/landing";
+            IWebDriver driver = new ChromeDriver();
+            driver.Navigate().GoToUrl(url);
+
+            
         }
 
     }
