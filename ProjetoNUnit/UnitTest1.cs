@@ -107,7 +107,7 @@ namespace ProjetoNUnit
             driver.FindElement(By.CssSelector("a[class='cc-btn cc-dismiss']")).Click();
 
             driver.FindElement(By.Id("login")).SendKeys("anderson.silva@base2.com.br");
-            driver.FindElement(By.Id("password")).SendKeys("Sua senha");
+            driver.FindElement(By.Id("password")).SendKeys("Andin@25");
 
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
 
